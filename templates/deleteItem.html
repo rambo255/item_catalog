@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+{% block content %}
+<h2>Would you like to delete the <i><strong>{{item.name}}</strong></i> item from
+	the {{category.name}} category?</h2>
+<br><br>
+<div class="row">
+	<div class="col-xs-12 col-sm-4 col-sm-offset-4">
+		<form class="form text-center" method="post">
+		  <div class="form-group">
+		    <a href="{{url_for('categoryItem', category_id = category.id, item_id = item.id)}}">Cancel</a>
+			<button type="submit" class="btn btn-default">Delete</button>
+		  </div>
+		</form>
+	</div>
+</div>
+{% endblock %}

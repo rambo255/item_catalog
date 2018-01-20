@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block content %}
+	<div class="row">
+		<div class="col-xs-3 catalogItems">
+			<h2>Categories</h2>
+			<ul class="list-unstyled">
+		  {% for category in categories %}
+	      <li> 
+	      	<a href="{{url_for('showCategoryItems', category_id = category.id)}}">{{ category.name }}</a>
+	      </li>
+		  {% endfor %}
+		  </ul>
+		</div>
+		<div class="col-xs-9">
+			{% if login_session %}
+				<br>
+				<a href="{{url_for('newItem')}}" class="newItems">Add New Item</a>
+			{% endif %}
+			<h2>Most Recent Items</h2>
+			<ul class="list-unstyled">
+		  {% for category_item in items %}
+		      <li>
+		      	<a href="{{url_for('categoryItem', category_id = category_item.category.id, item_id = category_item.id)}}">
+			      	{{ category_item.name }}
+			      	<small>({{ category_item.category.name }})</small>
+		      	</a>
+		      </li>
+		  {% endfor %}
+		  </ul>
+		</div>
+	</div>
+{% endblock %}

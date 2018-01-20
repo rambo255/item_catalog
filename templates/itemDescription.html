@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% block content %}
+	<div class="jumbotron">
+		<h2>{{item.name}}</h2>
+	  <p>Description: {{item.description}}</p>
+	  {% if login_session %}
+		  <p>
+		  	<small>
+				<a href="{{url_for('editItem',category_id = category.id, item_id = item.id)}}" class="addItems">Edit</a>
+		  		<span> | </span>
+		  		<a href="{{url_for('deleteItem', category_id = category.id, item_id = item.id)}}" class="addItems">Delete</a>
+		  	</small>
+		  </p>
+		 {% endif %}
+		<a href="{{url_for('homePage')}}">Return to Most Recent Items</a>
+	</div>
+{% endblock %}
