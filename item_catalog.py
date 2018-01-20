@@ -255,7 +255,6 @@ def showCategoryItems(category_id):
                                categories=categories, category=category,
                                login_session=login_session)
 
- 
 # Show a description of a category item
 @app.route('/category/<int:category_id>/item/<int:item_id>')
 def categoryItem(category_id, item_id):
